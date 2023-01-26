@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
 public class Database {
 
     private String filename;
@@ -17,7 +20,13 @@ public class Database {
 
     // delete the record at the specified row
     public void deleteRecord(int rowNumber) {
-        // TODO: replace this placeholder code
+        try (RandomAccessFile ra = new RandomAccessFile(filename, "rws")) {
+            ra.seek(rowNumber * (rowWidth + 2));
+            String line = ra.readLine();
+            line = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // return the record at the specified row
@@ -27,7 +36,7 @@ public class Database {
 
     // return the number of records in the database
     public int getRecordCount() {
-        return 0; // TODO: replace this placeholder code
+        return FileHandler.countLines(filename);
     }
 
     // search for a record matching data

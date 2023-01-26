@@ -31,10 +31,6 @@ public class FileHandler {
         return null;
     }
 
-    public static int countLines(String filename) {
-
-    }
-
 
     public static void writeLineAt(String fileName, String data, int start) {
         // overwrite a line from position "start" in the file
@@ -44,9 +40,25 @@ public class FileHandler {
     }
 
     public static int countLines(String fileName) {
-        // return the number of lines in the file
-        return 0;
+        int count = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+           ; String line = br.readLine();
+            while (line != null) {
+                count++;
+                line = br.readLine();
+            }
+            return count;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
-
+    public static void emptyFile(String filename) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename, false))) {
+            pw.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

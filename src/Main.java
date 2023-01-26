@@ -1,6 +1,7 @@
 class Main {
     public static void main(String[] args) {
         // test the database works
+        FileHandler.emptyFile("test.txt");
         System.out.println("Database");
         Database db = new Database("test.txt", 10);
         db.appendRecord("1.ABCDEFGH");
