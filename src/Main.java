@@ -4,6 +4,7 @@ class Main {
         FileHandler.emptyFile("test.txt");
         System.out.println("Database");
         Database db = new Database("test.txt", 10);
+        db.appendRecord("thisiswaytoolong");
         db.appendRecord("1.ABCDEFGH");
         db.appendRecord("2.ABCDEFGH");
         db.appendRecord("3.ABCDEFGH");

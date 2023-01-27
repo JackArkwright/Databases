@@ -27,8 +27,8 @@ public class FileHandler {
         }
         catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
 

@@ -13,9 +13,19 @@ public class Database {
 
     // add a new record to the end of the database
     public void appendRecord(String data) {
+        String newData = "";
+        int length = data.length();
+        int difference = rowWidth - length;
+        if (difference != 0) {
+            if (difference < 0)
+                data.substring(0,9);
+                FileHandler.appendLine(filename,data);
+            }
+            FileHandler.appendLine(filename, newData);
+        }
         // TODO: Pad the data to the correct record width
         // TODO: Report an error if the data is too long for the record
-        FileHandler.appendLine(filename, data);
+
     }
 
     // delete the record at the specified row
