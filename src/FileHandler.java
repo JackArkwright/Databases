@@ -42,7 +42,7 @@ public class FileHandler {
     public static int countLines(String fileName) {
         int count = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-           ; String line = br.readLine();
+            String line = br.readLine();
             while (line != null) {
                 count++;
                 line = br.readLine();

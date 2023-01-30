@@ -9,7 +9,8 @@ class Main {
         db.appendRecord("2.ABCDEFGH");
         db.appendRecord("3.ABCDEFGH");
         db.appendRecord("4.ABCDEFGH");
-        System.out.println(db.getRecord(2));	 // should be "3.ABCDEFGH"
+        db.appendRecord("short");
+        System.out.println(db.getRecord(2));	 // should be "2.ABCDEFGH"
         System.out.println(db.findRecord("EBCDEFGHIJ")); // false
         System.out.println(db.findRecord("2.ABCDEFGH")); // true
         System.out.println("count = " + db.getRecordCount()); // 4
